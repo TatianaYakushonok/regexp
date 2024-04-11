@@ -16,15 +16,14 @@ const filterFiles = (arr) => {
 console.log(filterFiles(files));
 
 // Task 2
-//const regexp = /([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,5})/g;
-const reg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,5}$/;
-const str = 'java_script@google.io';
 
-console.log(reg.test(str));
+// Валидные: info@methed.ru, max24@mail.com, java_script@google.io
+// Не валидные: my-mail@yandex.ru, tom_yam@ya.ru, zero@mai1.xyz'
 
-/**
- * 'info@methed.ru, max24@mail.com, java_script@google.io, my-mail@yandex.ru, tom_yam@ya.ru, zero@mai1.xyz';
- */
+const reg = /^\w+@[a-zA-Z_]{3,64}\.[a-zA-Z]{2,5}$/;
+const str = 'zero@mai1.xyz';
+
+console.log(str.match(reg));
 
 // Task 3
 const regexp = /\((.*?)\)/g;
